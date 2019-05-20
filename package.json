@@ -1,0 +1,25 @@
+{
+	"name": "vue",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"serve": "node dev/init.js && vue-cli-service serve",
+		"build": "vue-cli-service build --production"
+	},
+	"dependencies": {
+		"core-js": "^2.6.5",
+		"spx-com": "^1.0.27",
+		"vue": "^2.6.10",
+		"vue-router": "^3.0.3",
+		"vuex": "^3.0.1"
+	},
+	"devDependencies": {
+		"@vue/cli-plugin-babel": "^3.7.0",
+		"@vue/cli-service": "^3.7.0",
+		"cpass": "^2.1.0",
+		"sp-rest-proxy": "^2.8.8",
+		"stylus": "^0.54.5",
+		"stylus-loader": "^3.0.2",
+		"vue-template-compiler": "^2.5.21"
+	}
+}
