@@ -1,23 +1,13 @@
 const fs = require('fs')
-const Cpass = require('cpass').Cpass
+const { Cpass } = require('cpass')
 const rl = require('readline').createInterface({
 	input: process.stdin,
 	output: process.stdout
 })
 
-const promisify = f => {
-	const argsDeclared = []
-	for (let i = 0, fLength = f.length - 1; i < fLength; i++)
-		argsDeclared.push(void 0)
-	return (...args) =>
-		new Promise(resolve =>
-			f(...argsDeclared.map((u, i) => args[i]), x => resolve(x))
-		)
-}
+const question = msg => new Promise(resolve => rl.question(msg, resolve))
 
-const question = promisify(rl.question.bind(rl))
-
-fs.stat('./dev/private.json', async err => {
+fs.stat('./dev/private.json', async (err) => {
 	if (err) {
 		await fs.writeFileSync(
 			'./dev/private.json',
@@ -28,6 +18,8 @@ fs.stat('./dev/private.json', async err => {
 				username: await question('Username: '),
 				password: new Cpass().encode(await question('Password: ')),
 				filename: 'index.js',
+				customUsersWeb: 'AM',
+				customUsersList: 'UsersAD'
 			})
 		)
 	}

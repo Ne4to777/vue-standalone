@@ -3,6 +3,8 @@ node_modules
 /dist
 /dev/private.json
 package-lock.json
+examples/cdn/package-lock.json
+examples/cdn/node_modules
 
 # local env files
 .env.local

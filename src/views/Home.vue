@@ -26,23 +26,16 @@ export default {
 			return this.$route.query.a
 		}
 	},
-	async created() {
-		this.time = await this.$spx.time.getCurrent()
-		this.user = await this.$spx.user.get()
-		this.items = await this.$spx('test/spx')
-			.list('Test')
-			.item()
-			.get()
-	}
+	async created() {}
 }
 </script>
 
 <style lang="stylus" scoped>
 body
-	font 12px Helvetica, Arial, sans-serif
+  font 12px Helvetica, Arial, sans-serif
 
 a.button
-	-webkit-border-radius 5px
-	-moz-border-radius 5px
-	border-radius 5px
+  -webkit-border-radius 5px
+  -moz-border-radius 5px
+  border-radius 5px
 </style>
