@@ -14,6 +14,9 @@ export default {
 	async created() {
 		document.title = 'Look Ma!'
 		window.spx = this.$spx
+		spx('http://localhost:3000/')
+			.get()
+			.then(console.log)
 	}
 }
 </script>

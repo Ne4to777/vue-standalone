@@ -4,11 +4,12 @@
 	"private": true,
 	"scripts": {
 		"serve": "node dev/init.js && vue-cli-service serve",
-		"build:vue": "vue-cli-service build --production --modern",
+		"build": "vue-cli-service build --production",
 		"prebuild": "rm -rf dist",
-		"build": "rollup -c dev/rollup.config.js",
+		"build:rollup": "rollup -c dev/rollup.config.js",
 		"safe-install": "npm i && node dev/sweeper.fix.js"
 	},
+	"browserslist": "> 0.05%, not ie < 10, not op_mini all",
 	"dependencies": {
 		"core-js": "^2.6.5",
 		"html-webpack-plugin": "^3.2.0",

@@ -25,6 +25,10 @@ module.exports = {
 				'vue-router': 'VueRouter'
 			}
 		})
+		config.plugin('copy').tap(([options]) => {
+			options[0].ignore.push('sp.assembly.js')
+			return [options]
+		})
 	},
 	configureWebpack: {
 		plugins: [
