@@ -16,10 +16,7 @@ fs.stat('./dev/private.json', async (err) => {
 				strategy: 'OnpremiseUserCredentials',
 				domain: 'dme',
 				username: await question('Username: '),
-				password: new Cpass().encode(await question('Password: ')),
-				filename: 'index.js',
-				customUsersWeb: 'AM',
-				customUsersList: 'UsersAD'
+				password: new Cpass().encode(await question('Password: '))
 			})
 		)
 	}

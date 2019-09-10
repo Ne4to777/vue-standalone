@@ -1,9 +1,12 @@
-const RestProxy = require('sp-rest-proxy')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const RestProxy = require('sp-rest-proxy')
+
+const privateJSON = require('./dev/private.json')
 
 module.exports = {
+	publicPath: process.env.NODE_ENV === 'production' ? './' : '/',
 	devServer: {
-		contentBase: './dev/assets',
+		contentBase: './public',
 		port: 3000,
 		proxy: 'http://localhost:8080',
 		before: () => new RestProxy({
@@ -12,40 +15,15 @@ module.exports = {
 			port: 8080
 		}).serve()
 	},
-
-	chainWebpack: config => {
-		config.merge({
-			externals: {
-				axios: 'axios',
-				'crypto-js': 'CryptoJS',
-				SP: 'SP',
-				'spx-com': 'spx',
-				vue: 'Vue',
-				vuex: 'Vuex',
-				'vue-router': 'VueRouter'
-			}
-		})
-		config.plugin('copy').tap(([options]) => {
-			options[0].ignore.push('sp.assembly.js')
-			return [options]
-		})
-	},
+	filenameHashing: false,
 	configureWebpack: {
 		plugins: [
 			new HtmlWebpackPlugin({
-				template: 'public/index.ejs',
+				template: 'dev/index.ejs',
 				templateParameters: {
-					sp: 'sp.assembly.js'
+					HOST: privateJSON.siteUrl
 				}
 			})
 		]
-	},
-
-	filenameHashing: false,
-	pages: {
-		'index.min': {
-			entry: 'src/main.js',
-			filename: 'index.html'
-		}
 	}
 }
