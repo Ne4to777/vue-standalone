@@ -14,7 +14,8 @@ module.exports = {
     axios: 'readonly',
     CryptoJS: 'readonly',
     SP: 'readonly',
-    spx: 'readonly'
+    spx: 'readonly',
+    history: 'readonly'
   },
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',

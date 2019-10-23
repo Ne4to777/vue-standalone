@@ -1,22 +1,23 @@
+/* eslint-disable no-restricted-globals */
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+import userInfo from '../dev/private.json'
 import Home from './views/Home.vue'
+import About from './views/About.vue'
 
 Vue.use(VueRouter)
 
 export default new VueRouter({
-	base: window.location.pathname,
-	routes: [
-		{
-			path: '/',
-			name: 'home',
-			component: Home,
-		},
-		{
-			path: '/about',
-			name: 'about',
-			// route level code-splitting
-			// this generates a separate chunk (about.[hash].js) for this route
-			// which is lazy-loaded when the route is visited.
-			component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
-		},
-	],
+	base: userInfo.siteRelativePath,
+	mode: history.pushState ? 'history' : 'hash',
+	routes: [{
+		path: '/index.aspx',
+		alias: '/',
+		name: 'home',
+		component: Home
+	}, {
+		path: '/about/index.aspx',
+		name: 'about',
+		component: About
+	}]
 })
