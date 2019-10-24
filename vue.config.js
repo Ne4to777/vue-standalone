@@ -1,6 +1,4 @@
 const RestProxy = require('sp-rest-proxy')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-
 const privateJSON = require('./dev/private.json')
 
 module.exports = {
