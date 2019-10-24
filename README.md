@@ -1,4 +1,4 @@
-# vue-test
+# vue standalone app
 
 ## Project setup
 ```
