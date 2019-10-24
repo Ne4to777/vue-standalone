@@ -7,13 +7,16 @@
 		"build": "vue-cli-service build --production",
 		"safe-install": "npm i && node dev/sweeper.fix.js",
 		"lint": "vue-cli-service lint",
+		"deploy": "node dev/deploy.js",
 		"test:unit": "vue-cli-service test:unit"
 	},
 	"dependencies": {
 		"core-js": "^2.6.5",
 		"cpass": "^2.1.1",
 		"html-webpack-plugin": "^3.2.0",
+		"robocopy": "^0.1.16",
 		"vue": "^2.6.10",
+		"vue-head": "^2.1.2",
 		"vue-router": "^3.1.3",
 		"vuex": "^3.1.1"
 	},
